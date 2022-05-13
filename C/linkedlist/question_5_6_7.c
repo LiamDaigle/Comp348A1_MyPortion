@@ -44,25 +44,27 @@ int main()
     list two = malloc(sizeof(list));
     list three = malloc(sizeof(list));
     list four = malloc(sizeof(list));
-
     list five = malloc(sizeof(list));
     list six = malloc(sizeof(list));
     
     //Linking the list nodes together in the form given by question 6
     
     //Primary List
-    head->el = aasel('a');
-    head->next = two;
+    head = cons(aasel('a'),two);
+
     two->el = lasel(five);
     two->next = three;
+
     three->el = aasel('d');
     three->next = four;
+
     four->el = aasel('e'); 
     four->next = NULL;
 
     //Sub List
     five->el = aasel('b');
     five->next = six;
+
     six->el = aasel('c');
     six->next = NULL;
 
@@ -140,22 +142,15 @@ list cddr(element e){
     return ptr;
 }
 
-//Method that takes an element and list, and gives the head and tail those parameters
+//Method that takes an element as the head of a list, and the list l as the tail
 list cons(element e, list l){
 
     list newhead = malloc(sizeof(list));
-    list newtail = malloc(sizeof(list));
-    list newptr = newhead;
 
-    e.l = l;
-
-    newptr->el = e;
-    newptr->next = newtail;
-    newtail->el = e;
-    newtail->next = NULL;
+    newhead->el = e;
+    newhead->next = l;
 
     return newhead;
-    return NULL;
 }
 //Method that takes 2 lists and appends them into a new list
 list append(list l1, list l2){
